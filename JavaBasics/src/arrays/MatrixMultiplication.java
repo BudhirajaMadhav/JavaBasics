@@ -34,7 +34,7 @@ public class MatrixMultiplication {
 					b[i][j] = sc.nextInt();			
 				}
 			}
-		
+//		******LOGIC I MADE*********
 //			for (int i = 0; i < rows1 ; i++) {
 //				for(int j = 0 ; j<cols2; j++) {
 //					for(int l = i; l<rows1; l++) {
@@ -77,6 +77,7 @@ public class MatrixMultiplication {
 //				}
 //				
 //			}
+//			*****I didn't remember in ((m x n) X (n x p)) "n" is same on both sides*****Saw from Internet**
 			for(int m = 0; m < rows1; m++) {
 				for(int p = 0; p < cols2 ; p++) {
 					int sum = 0;
