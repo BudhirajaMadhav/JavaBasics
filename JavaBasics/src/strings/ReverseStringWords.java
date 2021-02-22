@@ -8,44 +8,93 @@ public class ReverseStringWords {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter a string:");
 		String str = sc.nextLine();
-//		char last = ' ';
+		str = str.trim();
 		char[] arr = new char[str.length()+1];
 		arr = str.toCharArray();
-		char[] arr1 = new char[str.length()+1];
-		int ar1idx = 0;
-		char[] arr2 = new char[str.length()+1];
-		int ar2idx = 0;
-		for (int i = arr.length-1; i >= 0; i--) {
-			if (i == arr.length - 1) {
-				if (arr[i] != ' ') {
-					arr1[ar1idx] = arr[i];
-					ar1idx+=1;
-				}
-			}else if(i==0){
-//				System.out.println(arr[i]);
-				arr2[ar2idx] = arr[i];
-			}else {
-				if ((arr[i] == ' ') && (arr[i-1] == ' ') && (arr[i+1] == ' ')){
-					continue;
-				}else if((arr[i]==' ') && (arr[i-1] != ' ') && (arr[i+1] == ' ')){
-					arr2[ar2idx] = ' ';
-					ar2idx+=1;
-				}else if((arr[i]!= ' ')&& (arr[i+1] == ' ')) {
-					arr1[ar1idx] = arr[i];
-					ar1idx+=1;
-				}else if((arr[i] != ' ') && (arr[i-1] == ' ')) {
-					arr1[ar1idx] = arr[i];
-					for (int j = ar1idx; j >= 0; j--) {
-						arr2[ar2idx] = arr1[j];
-						ar2idx+=1;
-					}
-					ar1idx = 0;
-				}else {
-					arr1[ar1idx] = arr[i];
-					ar1idx+=1;
-				}
+		String str1 = new String();
+		String str2 = new String();
+		for (int i = 0; i < arr.length; i++) {
+			if(arr[i] != ' ') {
+				str1 = str1 + arr[i];
+			}else if(arr[i] == ' ' && arr[i+1] != ' ' ) {
+				str2 = str1 + " " + str2;
+				str1 = "";
+			}else if(arr[i] == ' ' && arr[i-1] == ' ' && arr[i+1] == ' ') {
+				continue;
 			}
+		}
+		str2 = str1 + " " + str2;
+		System.out.print(str2);
+		
+		
+//		---------------------------
+		
+//		char last = ' ';
+//		char[] arr = new char[str.length()+1];
+//		arr = str.toCharArray();
+//		char[] arr1 = new char[str.length()+1];*
+//		int ar1idx = 0;
+//		char[] arr2 = new char[str.length()+1];
+//		int ar2idx = 0;
+//		for (int i = arr.length-1; i >= 0; i--) {
+//			if(arr[i]!= ' ') {
+//				arr1[ar1idx] = arr[i];
+//				ar1idx+=1;
+//			}else if(arr[i] == ' ' && arr[i-1] != ' ') {
+//				arr1[ar1idx] = arr[i];
+//				ar1idx+=1;
+//			}
+//		}
+////		System.out.println(arr1);
+//		for(char c: arr1) {
+//			if (c!=' ') {
+//				arr2[ar2idx] = c;
+//				ar2idx+=1;
+//			}else {
+//				for (int i = ar2idx-1; i >=0; i--) {
+//					System.out.print(arr2[i]);
+//				}
+//				System.out.print(" ");
+//				ar2idx = 0;
+//			}
+//		}
+//		for (int i = ar2idx; i >=0; i--) {
+//			if ((int)arr2[i] != 0) {
+//				System.out.print(arr2[i]);
+//			}
+//		}
 			
+
+//			if (i == arr.length - 1) {
+//				if (arr[i] != ' ') {
+//					arr1[ar1idx] = arr[i];
+//					ar1idx+=1;
+//				}
+//			}else if(i==0){
+////				System.out.println(arr[i]);
+//				arr2[ar2idx] = arr[i];
+//			}else {
+//				if ((arr[i] == ' ') && (arr[i-1] == ' ') && (arr[i+1] == ' ')){
+//					continue;
+//				}else if((arr[i]==' ') && (arr[i-1] != ' ') && (arr[i+1] == ' ')){
+//					arr2[ar2idx] = ' ';
+//					ar2idx+=1;
+//				}else if((arr[i]!= ' ')&& (arr[i+1] == ' ')) {
+//					arr1[ar1idx] = arr[i];
+//					ar1idx+=1;
+//				}else if((arr[i] != ' ') && (arr[i-1] == ' ')) {
+//					arr1[ar1idx] = arr[i];
+//					for (int j = ar1idx; j >= 0; j--) {
+//						arr2[ar2idx] = arr1[j];
+//						ar2idx+=1;
+//					}
+//					ar1idx = 0;
+//				}else {
+//					arr1[ar1idx] = arr[i];
+//					ar1idx+=1;
+//				}
+//			}
+//			
 //			if (arr[i] != ' ') {
 //				arr1[ar1idx] = arr[i];
 //				ar1idx+=1;
@@ -63,9 +112,8 @@ public class ReverseStringWords {
 //			}
 //			
 //			
-		}
+//		}
 //		System.out.println(arr1);
-		System.out.print( arr2);
 //			if (arr[i] != ' ' && arr1[ar1idx-1]!= ' ') {
 //				arr1[ar1idx-1] = arr[i];
 //				ar1idx+=1;
